@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iteration Statements</title>
+</head>
+<body>
+    <h1>ITERATION STATEMENTS HANDSON</h1>
+    <p><strong>1) Find the number of digits</strong></p>
+    <pre>
+const Find_Digits = (N) => 
+{
+    let i=0;
+    while(N>0)
+    {
+        N = Math.trunc(N/10);
+        i++;
+    }
+    return i;
+};
+    </pre>
+    <hr>
+    <p><strong>2) Find the Fives. Find out the number of times 5 occurred in a given number.</strong></p>
+    <pre>
+const Find_Five = (N) => 
+{
+	let i=0;
+	while(N>0)
+	{
+	    if(N%10===5){
+	        i++;
+	    }
+	    N=Math.trunc(N/10);
+	}
+	return i;
+};
+    </pre>
+    <hr>
+    <p><strong>
+        3) You are given an integer N, and your task is to find the sum of all the even integers starting from 1 upto N (N inclusive).
+    </strong></p>
+    <pre>
+const findSum = (n) => {
+    let i=2;
+    let sum=0;
+    while(i<=n)
+    {
+        if(i%2===0)
+        {
+            sum+=i;
+        }
+        i++;
+    }
+    return sum;
+};
+    </pre>
+    <hr>
+    <p><strong>
+        4) Write a program that takes a number from the user and get the sum of the digits present in the number.
+    </strong></p>
+    <pre>
+const Number_Sum = (N) => 
+{
+    let sum=0;
+	let i=0;
+	while(N>0)
+	{
+	    sum+=(N%10);
+	    N=Math.trunc(N/10);
+	    i++;
+	}
+	return sum;
+};
+    </pre>
+    <hr>
+    <p><strong>
+        5) Write a program which takes  a number from user and print all odd numbers in between 2 and N, but print 2 first.
+    </strong></p>
+    <pre>
+const Print_Odd = (N) => 
+{
+    for(let i=2;i<=N;i++)
+    {
+        if(i===2){
+            console.log(i);
+        }
+        else if(i%2===1){
+            console.log(i);
+        }
+    }
+};
+    </pre>
+    <hr>
+    <p><strong>6) Write a program which ask user for no of lines and print a pattern using an asterisk.</strong></p>
+    <pre>
+const Print_pattern = (N) => 
+{
+  let pattern="";
+
+    for(let i=0;i< N;i++)
+  {
+    for(let j=0;j<=i;j++)
+    {
+      pattern+="*";
+    }
+    pattern+="\n";
+  }
+  console.log(pattern);
+  
+};
+    </pre>
+    <hr>
+    <p><strong>7) Write a program which takes a number from user and check whether number is prime number or not a prime number.</strong></p>
+    <pre>
+const Prime_Check = (N) => 
+{
+    if(N===1)
+    {
+        return 'NO';
+    }
+    else
+    {
+        for(let i=2; i<=Math.sqrt(N); ++i)
+        {
+            if(N%i===0)
+            {
+                return 'NO';
+            }
+        }
+        return 'YES';
+    }
+};
+    </pre>
+    <hr>
+    <p><strong>8) You are given an integer N, and your task is to print all the integers starting from 1 till N (N inclusive).</strong></p>
+    <pre>
+const printNumbers = (n) =>
+{
+    let prnt="";
+    for(let i=1; i<=n; i++)
+    {
+        prnt=prnt+i+" ";
+    }
+    console.log(prnt);
+};
+    </pre>
+    <hr>
+    <p><strong>9) Write a program which takes a number from user and print the table.</strong></p>
+    <pre>
+const Print_Table = (N) => 
+{
+	let ans=1;
+	for(let i=1;i<=10;i++)
+	{
+	  ans=N*i;
+	  console.log(N+' * '+i+' = '+ans);
+	}
+};
+    </pre>
+    <hr>
+</body>
+</html>
