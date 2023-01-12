@@ -154,7 +154,7 @@ function Unique_Shirts (arr,N)
     <p><strong>9) The problem statement is simple- given N elements, find the minimum and maximum numbers among those elements.</strong></p>
     <pre>
       function arrayMin(arr) {
-        let min=arr[0];
+        let min=arr[0]; let N=arr.length;
         for(let i=0; i < N; i++)
         {
           if(arr[i+1] < min)
@@ -166,15 +166,15 @@ function Unique_Shirts (arr,N)
       }
       
       function arrayMax(arr) {
-        let max=arr[0];
-        for(let i=0; i < N; i++)
+      let max=arr[0]; let N=arr.length;
+      for(let j=0; j < N; j++)
+      {
+        if(arr[j+1]>max)
         {
-          if(arr[i+1] > max)
-          {
-            max=arr[i+1];
-          }
+          max=arr[j+1];
         }
-        return max;
+      }
+      return max;
       }
     </pre>
     <hr>
@@ -183,8 +183,8 @@ function Unique_Shirts (arr,N)
       A[i]. She decides to share a contiguous segment of the chocolate bar selected such that the length of the segment matches Yatharth's birth month 
       M and the sum of the integers on the squares is equal to his birthday D. You must determine how many ways she can divide the chocolate.</strong></p>
     <pre>
-      function Birthday_Game(arr, D, M) {
-        let count=0;
+      function Birthday_Game(arr,D ,M) {
+        let count=0; let N=arr.length;
         for(let i=0; i < N; i++)
         {
           let j=0; let k=i; let sum=0;
@@ -198,8 +198,8 @@ function Unique_Shirts (arr,N)
             count++;
           }
         }
-        console.log(count);
-      }
+        return count;
+       }
     </pre>
     <hr>
 </body>
