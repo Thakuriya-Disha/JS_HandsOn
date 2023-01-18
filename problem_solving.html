@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Solving</title>
+</head>
+<body>
+    <h1>PROBLEM SOLVING HANDS-ON</h1>
+    <br><hr><br>
+
+    <p><strong>1) PrepBuddy has an analog clock which consists of two hands one for hour and another for minute. She wants to calculate the shorter angle formed between hour and minute hand at any given time.</strong></p>
+    <pre>
+var Minimal_Angle = (h, m) => 
+{
+  let hourAngle = (30*h) + (0.5*m);
+  let minsAngle = 6*m;
+  let minimalAngle=0;
+  if(h===12 && m===0)
+  {
+    return 0;
+  }
+  if(hourAngle>minsAngle)
+  {
+    minimalAngle = (hourAngle - minsAngle);
+  }
+  else
+  {
+     minimalAngle = (minsAngle - hourAngle);
+  }
+  return minimalAngle;
+};
+    </pre>
+    <hr>
+
+    <p><strong>2) Write a program which takes an year N as input from the user and find out whether the given year is a Leap Year or not.</strong></p>
+    <pre>
+var Check_Leap = (year) => 
+{
+  if(year%100===0)
+  {
+    if(year%400===0)
+    {
+      return "Leap Year";
+    }
+    else
+    {
+      return "Non Leap Year";
+    }
+  }
+ else if(year%4===0)
+ {
+   return "Leap Year";
+ }
+  else
+  {
+    return "Non Leap Year";
+  }
+};
+    </pre>
+    <hr>
+
+    <p><strong>3) You are given an integer N, write a program to check whether the given number is a Perfect Number or not.</strong></p>
+    <pre>
+var Perfect_Check = (N) => 
+{
+  let perfectSum=0;
+  for(let i=0;i < N;i++)
+  {
+    if(N%i===0)
+    {
+      perfectSum+=i;
+    }
+  }
+  if(perfectSum===N)
+  {
+    return "YES";
+  }
+  else
+  {
+    return "NO";
+  }
+};
+    </pre>
+    <hr>
+
+    <p><strong>4) Write a program which takes a number N as input from the user and You need to reverse the number.</strong></p>
+    <pre>
+var Reverse_Number = (N) => 
+{
+ let rev = 0;
+  while(N > 0)
+  {
+    rev = rev * 10 + N % 10;
+    N = Math.floor(N / 10);
+  }
+  return rev;
+};
+    </pre>
+    <hr>
+
+    <p><strong>5) You are given two strings S1 and S2, you need to check whether the string S1 is a substring of string S2 or not.</strong></p>
+    <pre>
+var Substring_Check = (S1, S2) => 
+{
+   let N = S2.length;
+   
+   for(let i=0;i<=(S1.length-N);i++)
+   {
+     if(S1.substring(i,i+N)===S2)
+     {
+       return "YES";
+     }
+   }
+   
+   return "NO";
+};
+    </pre>
+    <hr>
+</body>
+</html>
