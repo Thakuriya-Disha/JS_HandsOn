@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOSURES</title>
+</head>
+<body>
+    <h1>CLOSURES HANDS-ON</h1>
+    <br>
+    <pre style="font-weight:bold">
+1) function counter(){
+    var counter = 0;
+        
+    function IncreaseCounter() {
+        return counter += 1;
+    };
+        
+    return IncreaseCounter;
+    }
+        
+    var counter = counter();
+    console.log(counter());
+    console.log(counter());
+    console.log(counter());
+    console.log(counter());
+    </pre>
+    <pre>
+OUTPUT:
+1
+2
+3
+4
+
+<em>Every time the function runs, the variable counter value gets updated, increasing by 1.</em>
+    </pre>
+    <br><hr><br>
+
+    <pre style="font-weight:bold">
+2)  let count = 0;
+    (function () {
+        if (count === 0) {
+            let count = 1;
+            console.log(count); // What is logged?
+        }
+        console.log(count); // What is logged?
+    })();
+    </pre>
+    <pre>
+OUTPUT:
+1
+0
+
+<em>Inside the if statement a new let variable of name "count" is initialized with value 1 and that is the output.
+Then because of scoping, the 2nd console.log cannot access count=1. It accesses the global variable count initialized with zero.
+</em>
+    </pre>
+    <br><hr><br>
+
+    <pre style="font-weight:bold">
+3)  for (var i = 0; i < 3; i++)
+    {
+        setTimeout(function log() {
+            console.log(i); // What is logged?
+        }, 1000);
+    }
+    </pre>
+    <pre>
+OUTPUT:
+3
+3
+3
+
+<em>After a delay of 1 second, the setTimeout() runs 3 times, each time printing the last updated value of i, that is 3.</em>
+    </pre>
+    <br><hr><br>
+
+    <pre style="font-weight:bold">
+4) Write a code to calculate area of a rectangle using inner function. In this case outer function should accept parameter length and inner function should accept parameter breadth.
+    </pre>
+    <pre>
+function areaL(length)
+{
+    function areaB(breadth)
+    {
+        let area = length * breadth;
+        console.log("Thus, the area of the rectangle is = " + area);
+    }
+    areaB(74);
+}
+areaL(135);
+
+<em>//Thus, the area of the rectangle is = 9990</em>
+    </pre>
+    <br><hr><br>
+
+    <pre style="font-weight:bold">
+ 5) Take a variable in outer function and create an inner function to increase the counter every time it is called
+    </pre>
+    <pre>
+function outer(num){
+    function inner(){
+        num+=1;
+        console.log(num);
+    }
+    inner(num);
+    inner(num);
+    inner(num);
+    inner(num);
+}
+outer(23);
+
+//24
+//25
+//26
+//27
+    </pre>
+    <br><hr><br>
+
+    <pre style="font-weight:bold">
+ 6) Print Output
+
+ var a = 12;
+ (function () {
+   console.log(a);
+ })();
+    </pre>
+    <pre>
+OUTPUT:
+12
+
+<em>a is a global variable therefore the console.log statement could access its value and we get the output as 12</em>
+    </pre>
+    <br><hr><br>
+
+    <pre style="font-weight:bold">
+ 7) Print The Output
+ 
+ var a = 10;
+ var x = (function ()
+    {
+        var a = 12;
+        return function ()
+        {
+            console.log(a);
+        };
+    })();
+ x();
+    </pre>
+    <pre>
+OUTPUT:
+12
+
+<em>12 is printed as it accesses the value of variable a in the function scope</em>
+    </pre>
+    <br><hr><br>
+
+    <pre style="font-weight:bold">
+ 8) Print the output
+
+var globalVar = "xyz";
+
+(function outerFunc(outerArg)
+{
+    var outerVar = 'a';
+     
+    (function innerFunc(innerArg)
+    {
+        var innerVar = 'b';
+        console.log( "outerArg = " + outerArg + "\n" + "innerArg = " + innerArg + "\n" +
+         "outerVar = " + outerVar + "\n" + "innerVar = " + innerVar + "\n" +
+         "globalVar = " + globalVar);
+    })(456);
+ })
+(123);
+    </pre>
+    <pre>
+OUTPUT:
+outerArg = 123
+innerArg = 456
+outerVar = a 
+innerVar = b 
+globalVar = xyz
+    </pre>
+    <br><hr><br>
+</body>
+</html>
