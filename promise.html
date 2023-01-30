@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13th Handson</title>
+</head>
+<body>
+    <h1>PROMISES ASYNC AWAIT HANDS-ON</h1>
+    <br><hr><br>
+
+    <p><strong>
+        1) Write one example explaining how you can write a callback function ?
+    </strong></p>
+    <pre>
+        function cubeFunc(num, operation){
+            setTimeout(function(){
+                let ans=1;
+                ans = num**3;
+                operation(num, ans);
+            }, 2000)
+        }
+        
+        cubeFunc(9, function(no, ans){
+            console.log("The cube of ",no," is = ",ans);
+        })
+        
+
+        <em>//OUTPUT: The cube of 9 is = 729</em>
+    </pre>
+    <br><hr><br>
+
+    <p><strong>
+        2) Write callback function to print numbers from 1 to 7, in which 1 should be printed after 1 sec , 2 should be printed after 2 sec, 3 should be printed after 3 sec and so on. 
+        Explain callback hell. <br>
+        Numbers <br>
+        1 <br>
+        2 <br>
+        3 <br>
+        4 <br>
+        5 <br>
+        6 <br>
+        7 <br>
+    </strong></p>
+    <pre>
+<strong>Callback Hell is the pattern that forms in our code while using dependents or nested callbacks.</strong>
+
+    let count=0;
+    setTimeout(function(){
+        console.log(++count);
+        setTimeout(function(){
+            console.log(++count);
+            setTimeout(function(){
+                console.log(++count);
+                setTimeout(function(){
+                    console.log(++count);
+                    setTimeout(function(){
+                        console.log(++count);
+                        setTimeout(function(){
+                            console.log(++count);
+                            setTimeout(function(){
+                                console.log(++count);
+                            },7000)
+                        },6000)
+                    },5000)
+                },4000)
+            },3000)
+        },2000)
+    },1000)
+    </pre>
+    <br><hr><br>
+
+    <p><strong>
+        3) Write promise function to print numbers from 1 to 7, in which 1 should be printed after 1 sec , 2 should be printed after 2 sec, 3 should be printed after 3 sec and so on. 
+        <br>Numbers<br>
+        1 <br>
+        2 <br>
+        3 <br>
+        4 <br>
+        5 <br>
+        6 <br>
+        7 <br>
+    </strong></p>
+    <pre></pre>
+    <br><hr><br>
+
+    <p><strong></strong></p>
+    <pre></pre>
+    <br><hr><br>
+
+    <p><strong></strong></p>
+    <pre></pre>
+    <br><hr><br>
+</body>
+</html>
