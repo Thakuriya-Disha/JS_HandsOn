@@ -82,14 +82,210 @@
         6 <br>
         7 <br>
     </strong></p>
-    <pre></pre>
+    <pre>
+        function printNos(n){
+            let P = new Promise(function(resolve){
+                setTimeout(function(){
+                    resolve(n);
+                },n*1000)
+            })
+            return P;
+        }
+        
+        printNos(1).then(function(n){
+            console.log(n);
+            return printNos(2);
+        }).then(function(n){
+            console.log(n);
+            return printNos(3);
+        }).then(function(n){
+            console.log(n);
+            return printNos(4);
+        }).then(function(n){
+            console.log(n);
+            return printNos(5);
+        }).then(function(n){
+            console.log(n);
+            return printNos(6);
+        }).then(function(n){
+            console.log(n);
+            return printNos(7);
+        }).then(function(n){
+            console.log(n);
+        })
+    </pre>
     <br><hr><br>
 
-    <p><strong></strong></p>
-    <pre></pre>
+    <p><strong>
+        4) Create a promise function accepting a argument, if yes is passed to the function then it should go to resolved state and print Promise Resolved, 
+        and if nothing is passed then it should go to reject state and catch the error and print Promise Rejected 
+    </strong></p>
+    <pre>
+        function promiseFunc(input){
+            let answer = new Promise(function(resolve, reject){
+                setTimeout(function(){
+                    if(input=="yes")
+                    {
+                        resolve("Promise Resolved");
+                    }
+                    else
+                    {
+                        reject("Promise Rejected");
+                    }
+                },1000)
+            })
+            return answer;
+        }
+        promiseFunc("yes").then(function(res){
+            console.log(res);
+        }).catch(function(err){
+            console.log(err);
+        })
+
+
+        <em>//Promise Resolved</em>
+    </pre>
     <br><hr><br>
 
-    <p><strong></strong></p>
+    <p><strong>
+        5) Create example to explain callback function
+    </strong></p>
+    <pre>
+        A callback function is a function passed to another function as an argument. Callbacks promote asynchronous programming
+
+        function findSum(num1, num2, operation1){
+            setTimeout(function(){
+                let sum = num1 + num2;
+                operation1(num1, num2, sum);
+            }, 2000)
+        }
+        
+        findSum(26, 23, <strong>function(num1, num2, ans1){</strong>
+            console.log("The sum of",num1,"&",num2,":",ans1);
+        })
+
+        //The sum of 26 & 23 : 49
+
+        <em>In this example of adding two numbers, there is 1 callback function (shown in bold).</em>
+    </pre>
+    <br><hr><br>
+
+    <p><strong>
+        6) Create example to explain callback hell function
+    </strong></p>
+    <pre>
+        function findSum(num1, num2, operation1){
+            setTimeout(function(){
+                let sum = num1 + num2;
+                operation1(num1, num2, sum);
+            }, 2000)
+        }
+        
+        function squareOfSum(num, operation2){
+            setTimeout(function(){
+                let ans = num * num;
+                operation2(num, ans);
+            }, 2000)
+        }
+        
+        findSum(26, 23, <strong>function(num1, num2, ans1){</strong>
+            console.log("The Sum of",num1,"&",num2,":",ans1);
+            squareOfSum(ans1, <strong>function(num, ans2){</strong>
+                console.log("The Square of",num,":",ans2);
+            })
+        })
+
+        //The Sum of 26 & 23 : 49
+        //The Square of 49 : 2401
+
+        <em>In this example of adding two numbers and then squaring its sum, there are 2 callback functions (shown in bold).
+        And since one callback function is nested within another, a callback hell has formed.</em>
+    </pre>
+    <br><hr><br>
+
+    <p><strong>
+        7) Create example to explain promises function
+    </strong></p>
+    <pre>
+        function findSum(num1,num2){
+            let pr = new Promise(function(res,rej){
+                setTimeout(function(){
+                    let sum = num1 + num2;
+                    if(isNaN(sum))
+                    {
+                        rej("Try Again! Enter a valid number");
+                    }
+                    else
+                    {
+                        res(sum);
+                    }
+                }, 2000)
+            })
+            return pr;
+        }
+        
+        findSum(26,23).then(function(ans){
+            console.log("Sum =", ans);
+        }).catch(function(err){
+            console.log(err);
+        })
+
+        //Sum = 49
+
+        <em>
+        Promise Function are the functions that return a promise object. A promise is an object which represents the completion or failure of an asynchronous operation
+        along with its result. They come with in-built error handling. Here inside the findSum() function, promise object "pr" has been created.
+        Then the function is called and ".then" block is attached to handle the resolved part and ".catch" handles the reject part.</em>
+    </pre>
+    <br><hr><br>
+
+    <p><strong>
+        8) Create example to explain async await function
+    </strong></p>
+    <pre>
+        function findSum(num1,num2){
+            let pr = new Promise(function(res,rej){
+                setTimeout(function(){
+                    let sum = num1 + num2;
+                    if(isNaN(sum))
+                    {
+                        rej("Try Again! Enter a valid number");
+                    }
+                    else
+                    {
+                        res(sum);
+                    }
+                }, 2000)
+            })
+            return pr;
+        }
+
+        async function answer(){
+            try
+            {
+                let finalAns = await findSum(37,26);
+                console.log("The Sum = ",finalAns);
+            }
+            catch
+            {
+                console.log("Please enter a valid number!");
+            }
+        }
+        answer();
+
+        //The Sum =  63
+
+        <em>
+        An async function "answer()" is created, inside which there are two blocks: try block that handles the resolved result, and catch block to handle the rejected result.
+        Async Functions always return a promise. Inside the try block, we use the "await" keyword. The "await" keyword can only be used inside functions that are declared with "async".
+        "await" pauses the execution of the function, waiting for a promise to be reolved.
+        </em>
+    </pre>
+    <br><hr><br>
+
+    <p><strong>
+        9) Create example to explain promise.all function
+    </strong></p>
     <pre></pre>
     <br><hr><br>
 </body>
