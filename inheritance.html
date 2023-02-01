@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INHERITANCE & PROTOTYPE</title>
+</head>
+<body>
+    <h1>INHERITANCE & PROTOTYPE HANDS-ON</h1>
+    <hr>
+
+    <p><strong>
+        1) Create 2 objects - parent and child. Attach methods to parent and use those methods in child object using parents prototype
+    </strong></p>
+    <pre>
+        const Parent = {
+            details(){
+                console.log(`Hey this is ${this.name}! Check out my latest single ${this.song} from my 10th studio album ${this.album}`);
+            }
+        }
+        
+        const child = Object.create(Parent);
+        child.name = "Taylor Swift";
+        child.song = "Lavender Haze";
+        child.album = "Midnights";
+        child.details();
+
+        <em>
+        OUTPUT:
+        Hey this is Taylor Swift! Check out my latest single Lavender Haze from my 10th studio album Midnights
+        </em>
+    </pre>
+    <hr><br>
+
+    <p><strong>
+        2) Write code to explain prototype chaining
+    </strong></p>
+    <pre>
+        const objMusic = {
+            artist: "Taylor Swift",
+            genre: function(){
+                console.log("Belongs to Indie genre");
+            }
+        }
+        const album1 = Object.create(objMusic);
+        album1.name = "Folklore";
+        album1.year = "2020";
+        console.log(album1.name);
+        console.log(album1.year);
+        console.log(album1.artist);     //accessing from the grandparent object
+        album1.genre();                 //accessing from the grandparent object
+        console.log("\n");
+        const album2 = Object.create(album1);
+        album2.name = "Evermore";
+        console.log(album2.name);
+        console.log(album2.year);       //accessing from the parent object
+        console.log(album2.artist);     //accessing from the grandparent object
+        album2.genre();                 //accessing from the grandparent object
+
+        <em>
+        OUTPUT:
+        Folklore
+        2020
+        Taylor Swift
+        Belongs to Indie genre
+    
+        Evermore
+        2020
+        Taylor Swift
+        Belongs to Indie genre
+        </em>
+    </pre>
+    <hr><br>
+
+    <p><strong>
+        3) Add a method to calculate sum of all elements in Array in array's prototype, use that method to calculate sum for multiple arrays
+    </strong></p>
+    <pre>
+        let newArr = new Array(9,37,269);
+        newArr.__proto__.add = function(arr){
+            let count=0;
+            for(let i=0; i < arr.length; i++)
+            {
+                count += arr[i];
+            }
+            return count;
+        }
+
+        let ans = newArr.add(newArr);
+        console.log(ans);
+        
+        <em>
+        OUTPUT:
+        315
+        </em>
+    </pre>
+    <hr><br>
+
+    <p><strong>
+        4) Write a JavaScript function to retrieve all the names of object's own and inherited properties.
+    </strong></p>
+    <pre></pre>
+    <hr><br>
+</body>
+</html>
