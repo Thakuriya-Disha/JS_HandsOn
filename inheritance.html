@@ -100,7 +100,40 @@
     <p><strong>
         4) Write a JavaScript function to retrieve all the names of object's own and inherited properties.
     </strong></p>
-    <pre></pre>
-    <hr><br>
+    <pre>
+function kpop(name,group,company,gen,fandom)
+{
+    this.name = name;
+    this.group = group;
+    this.company = company;
+    this.gen = gen;
+    this.fandom = fandom;
+}
+
+kpop.prototype.name1 = "KPOP";
+
+let exo = new kpop("EXO","boy group","SM Ent.","3rd gen","exo-l");
+let exoSC = Object.create(exo);
+
+console.log("2 objects have been created: exo and exoSC");
+console.log("The value of 'name' property for 'exo'--->",exo.name);
+console.log("The value of inherited 'name' property for 'exo'--->",exo.name1);
+console.log("The value of 'name' property inherited from parent for 'exoSC'--->",exoSC.name);
+console.log("The value of 'name' property inherited from grandparent for 'exo'--->",exoSC.name1);
+
+exoSC.name2 = "EXO-SC";
+console.log("The value of 'name' property for 'exo'--->",exoSC.name2);
+
+<em>
+//OUTPUT:
+2 objects have been created: exo and exoSC
+The value of 'name' property for 'exo'---> EXO
+The value of inherited 'name' property for 'exo'---> KPOP
+The value of 'name' property inherited from parent for 'exoSC'---> EXO
+The value of 'name' property inherited from grandparent for 'exo'---> KPOP
+The value of 'name' property for 'exo'---> EXO-SC
+</em>
+</pre>
+<hr><br>
 </body>
 </html>
