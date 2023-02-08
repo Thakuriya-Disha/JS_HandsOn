@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Create a button , on click of which new Heading tag h1 should be added
+        with text as "MERN stack" on the screen above button-->
+    <div>
+        <h1>Q.1</h1>
+        <br>
+        <p id="lineOne"></p>
+        <button onclick="add()">Click Here!</button><br><br>
+        <p id="lineTwo"><p>
+        <button id="btn">Click Here!</button>
+        <br><hr>
+    </div>
+    <!--Write code to implement timer clock using JS -- display HH:MM:SS --
+        the time should keep updating every second-->
+    <div>
+        <h1>Q.3</h1>
+        <p style="font-size:24px; color:orangered; font-weight:bold;"><span id="hrs"></span> : <span id="min"></span> : <span id="sec"></span></p>
+        <br><hr>
+    </div>
+    <!--Write code to get 1st H1 element from a webpage using DOM-->
+    <div>
+        <h1>Q.2</h1>
+        <h1 class="title">Welcome!</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h1 class="title">Introduction</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h1 class="title">Main Body</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h1 class="title">Conclusion</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <br>
+        <hr>
+    </div>
+    <!--Create an HTML page having content as "Hello world" and a button named Replace Text.
+        When user will click on this button page content should be changed to "Welcome to Elevation academy"-->
+    <div>
+        <h1>Q.4</h1>
+        <p id="para" style="font-size:22px; color:crimson"><strong>Hello world</strong></p>
+        <button onclick="replace()">Replace Text</button>
+        <br><br><hr>
+    </div>
+    <!--Create an HTML page having content as Hello world and a button named "Hide Text."
+        When user will click on this button hide the "Hello World" text-->
+    <div>
+        <h1>Q.5</h1>
+        <p id="paraaa" style="font-size:22px; color:forestgreen"><strong>Hello world</strong></p>
+        <button onclick="hide()">Hide Text</button>
+    </div>
+
+    <script>
+        function add(){
+            let line1 = document.getElementById("lineOne");
+            let heading1 = document.createElement("h1");
+            heading1.innerText = "MERN Stack";
+            heading1.style.color = "violet";
+            line1.appendChild(heading1);
+        }
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click",function(event){
+            let line2 = document.getElementById("lineTwo");
+            let heading2 = document.createElement("h1");
+            heading2.innerText = "MERN Stack";
+            heading2.style.color = "blue";
+            line2.appendChild(heading2);
+        })
+        function clockStart(){
+            let time = new Date();
+            let hrs = time.getHours();
+            let mins = time.getMinutes();
+            let sec = time.getSeconds();
+            document.getElementById("hrs").innerText = hrs;
+            document.getElementById("min").innerText = mins;
+            document.getElementById("sec").innerText = sec;
+        }
+        setInterval(function(){
+            clockStart();
+        },1000)
+
+        let titleOne = document.getElementsByClassName("title");
+        titleOne[0].style.color="magenta";
+
+        function replace(){
+            document.getElementById("para").innerText = "Welcome to Elevation academy";
+            document.getElementById("para").style.color = "blue";
+            document.getElementById("para").style.fontWeight = "bold";
+        }
+
+        function hide(){
+            document.getElementById("paraaa").style.visibility = "hidden";
+        }
+    </script>
+</body>
+</html>
